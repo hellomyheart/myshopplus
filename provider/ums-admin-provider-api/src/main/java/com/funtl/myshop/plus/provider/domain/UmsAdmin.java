@@ -5,8 +5,12 @@ import java.util.Date;
 import javax.persistence.*;
 import lombok.Data;
 
-@Data
+/**
+ * 系统用户表
+ */
+
 @Table(name = "ums_admin")
+@Data
 public class UmsAdmin implements Serializable {
     @Id
     @Column(name = "id")

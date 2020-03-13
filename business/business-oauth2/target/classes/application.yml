@@ -12,7 +12,7 @@ spring:
         server-addr: nacos.demo.com:80
 dubbo:
   scan:
-    base-packages: com.funtl.myshop.plus.business.controller
+    base-packages: com.funtl.myshop.plus.business.controller,com.funtl.myshop.plus.business.service
   protocol:
     name: dubbo
     port: -1
@@ -20,6 +20,14 @@ dubbo:
   registry:
     address: nacos://nacos.demo.com
     port: 80
+
+#  开启feign的okhttp #
+feign:
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
+
 server:
   port: 9001
 management:
@@ -32,3 +40,4 @@ business:
     grant_type: password
     client_id: client
     client_secret: secret
+

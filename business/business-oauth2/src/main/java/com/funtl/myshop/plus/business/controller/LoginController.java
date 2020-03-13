@@ -2,9 +2,11 @@ package com.funtl.myshop.plus.business.controller;
 
 import com.funtl.myshop.plus.business.dto.LoginInfo;
 import com.funtl.myshop.plus.business.dto.LoginParam;
+import com.funtl.myshop.plus.business.feign.ProfileFeign;
 import com.funtl.myshop.plus.commons.dto.ResponseResult;
 import com.funtl.myshop.plus.commons.utils.MapperUtils;
 import com.funtl.myshop.plus.commons.utils.OkHttpClientUtil;
+import com.funtl.myshop.plus.provider.domain.UmsAdmin;
 import com.google.common.collect.Maps;
 import okhttp3.Response;
 import org.springframework.beans.factory.annotation.Value;
@@ -56,6 +58,15 @@ public class LoginController {
     @Resource
     public TokenStore tokenStore;
 
+    @Resource
+    private ProfileFeign profileFeign;
+
+
+    /**
+     * 登录
+     * @param loginParam 登录参数
+     * @return
+     */
     @PostMapping(value = "/user/login")
     public ResponseResult<Map<String, Object>> login(@RequestBody LoginParam loginParam) {
         Map<String, Object> result = Maps.newHashMap();
@@ -86,11 +97,15 @@ public class LoginController {
     }
 
     @GetMapping(value = "/user/info")
-    public ResponseResult<LoginInfo> info() {
+    public ResponseResult<LoginInfo> info() throws Exception {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        String jsonString = profileFeign.info(authentication.getName());
+        UmsAdmin umsAdmin = MapperUtils.json2pojoByTree(jsonString, "data", UmsAdmin.class);
+
         LoginInfo loginInfo = new LoginInfo();
-        loginInfo.setName(authentication.getName());
-        authentication.getName();
+        loginInfo.setName(umsAdmin.getNickName());
+        loginInfo.setAvatar(umsAdmin.getIcon());
         return new ResponseResult<LoginInfo>(ResponseResult.CodeStatus.OK, "获取用户信息", loginInfo);
     }
 

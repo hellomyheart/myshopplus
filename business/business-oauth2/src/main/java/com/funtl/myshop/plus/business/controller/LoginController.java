@@ -33,8 +33,8 @@ import java.util.Objects;
 /**
  * 登录管理
  */
-//解决跨域问题
-@CrossOrigin(origins = "*", maxAge = 3600)
+//解决跨域问题,现在不需要了
+//@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class LoginController {
 

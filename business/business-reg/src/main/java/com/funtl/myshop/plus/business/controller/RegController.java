@@ -16,8 +16,6 @@ import javax.annotation.Resource;
 /**
  * 用户注册.
  */
-//解决跨域问题
-@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(value = "reg")
 public class RegController {

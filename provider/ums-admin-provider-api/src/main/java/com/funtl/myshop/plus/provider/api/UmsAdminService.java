@@ -30,4 +30,14 @@ public interface UmsAdminService {
      */
     UmsAdmin get(UmsAdmin umsAdmin);
 
+    /**
+     * 更新用户
+     * <p>
+     * 仅允许更新 邮箱、昵称、备注、状态
+     * </p>
+     *
+     * @param umsAdmin {@link UmsAdmin}
+     * @return {@code int} 大于 0 则表示更新成功
+     */
+    int update(UmsAdmin umsAdmin);
 }

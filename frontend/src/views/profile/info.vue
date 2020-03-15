@@ -8,6 +8,7 @@
       :model="form"
       label-width="120px"
     >
+      <el-input type="hidden" v-model="form.id" />
       <el-form-item label="头像">
         <img :src="form.icon" width="60" height="60">
       </el-form-item>
@@ -42,13 +43,14 @@
   </div>
 </template>
 <script>
-    import { info } from '@/api/profile'
+    import { info, update} from '@/api/profile'
     export default {
         name: 'ProfileInfo',
         data() {
             return {
                 formLoading: true,
                 form: {
+                    id: '',
                     icon: '',
                     username: '',
                     email: '',
@@ -71,7 +73,16 @@
                 })
             },
             onSubmit() {
-                this.$message('submit!')
+                this.formLoading = true
+                update(this.form).then(response =>{
+                    this.formLoading = false
+                    this.$message({
+                        message: response.message,
+                        type: "success"
+                    });
+                }).catch(()=>{
+                    this.formLoading=false
+                })
             }
         }
     }

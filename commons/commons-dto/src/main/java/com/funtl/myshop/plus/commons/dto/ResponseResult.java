@@ -1,6 +1,9 @@
 package com.funtl.myshop.plus.commons.dto;
+
 import lombok.Data;
+
 import java.io.Serializable;
+
 /**
  * 通用数据传输对象
  * <p>
@@ -11,7 +14,6 @@ import java.io.Serializable;
  * @version v1.0.0
  * @date 2019-07-26 04:43:54
  * @see com.funtl.myshop.plus.commons.dto
- *
  */
 @Data
 public class ResponseResult<T> implements Serializable {
@@ -28,28 +30,34 @@ public class ResponseResult<T> implements Serializable {
      * 返回对象
      */
     private T data;
+
     public ResponseResult() {
         super();
     }
+
     public ResponseResult(Integer code) {
         super();
         this.code = code;
     }
+
     public ResponseResult(Integer code, String message) {
         super();
         this.code = code;
         this.message = message;
     }
+
     public ResponseResult(Integer code, Throwable throwable) {
         super();
         this.code = code;
         this.message = throwable.getMessage();
     }
+
     public ResponseResult(Integer code, T data) {
         super();
         this.code = code;
         this.data = data;
     }
+
     public ResponseResult(Integer code, String message, T data) {
         super();
         this.code = code;
@@ -66,6 +74,7 @@ public class ResponseResult<T> implements Serializable {
         result = prime * result + ((code == null) ? 0 : code.hashCode());
         return result;
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -105,27 +114,32 @@ public class ResponseResult<T> implements Serializable {
     /**
      * 状态码
      */
-    public class CodeStatus{
+    public class CodeStatus {
         /**
          * 成功
          */
-        public static  final int OK=20000;
+        public static final int OK = 20000;
         /**
          * 失败
          */
-        public static  final int FAIL=50000;
+        public static final int FAIL = 20004;
+
+        /**
+         * 非法请求
+         */
+        public static final int ILLEGAL_REQUEST = 50000;
         /**
          * 非法的 Token
          */
-        public static  final int ILLEGAL_TOKEN=50008;
+        public static final int ILLEGAL_TOKEN = 50008;
         /**
          * 其他账号已登录
          */
-        public static  final int OTHER_CLIENTS_LOGGED_IN=50012;
+        public static final int OTHER_CLIENTS_LOGGED_IN = 50012;
         /**
          * token超时
          */
-        public static  final int TOKEN_EXPIRED=50014;
+        public static final int TOKEN_EXPIRED = 50014;
 
     }
 }

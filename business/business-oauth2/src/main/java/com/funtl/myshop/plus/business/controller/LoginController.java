@@ -104,7 +104,7 @@ public class LoginController {
         UmsAdmin umsAdmin = MapperUtils.json2pojoByTree(jsonString, "data", UmsAdmin.class);
 
         LoginInfo loginInfo = new LoginInfo();
-        loginInfo.setName(umsAdmin.getNickName());
+        loginInfo.setName(umsAdmin.getUsername());
         loginInfo.setAvatar(umsAdmin.getIcon());
         return new ResponseResult<LoginInfo>(ResponseResult.CodeStatus.OK, "获取用户信息", loginInfo);
     }

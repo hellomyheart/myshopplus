@@ -55,6 +55,32 @@ export const constantRoutes = [
     }]
   },
 
+
+
+  {
+    path: '/profile',
+    component: Layout,
+    redirect: '/profile/info',
+    name: 'Profile',
+    meta: { title: '个人信息', icon: 'user' },
+    children: [
+      {
+        path: 'info',
+        name: 'ProfileInfo',
+        component: () => import('@/views/profile/info'),
+        meta: { title: '修改信息', icon: "user"}
+      },
+      {
+        path: 'password',
+        name: 'ProfilePassword',
+        component: () => import('@/views/profile/password'),
+        meta: { title: '修改密码' ,icon: 'user'}
+      }
+    ]
+  },
+
+
+
   {
     path: '/example',
     component: Layout,
@@ -76,6 +102,8 @@ export const constantRoutes = [
       }
     ]
   },
+
+
 
   {
     path: '/form',

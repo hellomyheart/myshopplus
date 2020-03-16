@@ -18,3 +18,5 @@
 *.zip
 *.tar.gz
 *.rar
+
+cloud/cloud-upload/cloud-upload-service/src/main/java/com/funtl/myshop/plus/cloud/controller/UploadController.java

@@ -76,4 +76,11 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         oldAdmin.setStatus(umsAdmin.getStatus());
         return umsAdminMapper.updateByPrimaryKey(oldAdmin);
     }
+
+    @Override
+    public int modifyIcon(String username, String path) {
+        UmsAdmin umsAdmin = get(username);
+        umsAdmin.setIcon(path);
+        return umsAdminMapper.updateByPrimaryKey(umsAdmin);
+    }
 }

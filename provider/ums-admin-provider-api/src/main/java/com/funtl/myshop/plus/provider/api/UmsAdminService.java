@@ -40,4 +40,13 @@ public interface UmsAdminService {
      * @return {@code int} 大于 0 则表示更新成功
      */
     int update(UmsAdmin umsAdmin);
+
+    /**
+     * 修改头像
+     *
+     * @param username {@code String} 用户名
+     * @param path     {@code String} 头像地址
+     * @return {@code int} 大于 0 则表示更新成功
+     */
+    int modifyIcon(String username, String path);
 }

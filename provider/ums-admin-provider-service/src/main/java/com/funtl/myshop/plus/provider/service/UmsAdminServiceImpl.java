@@ -44,6 +44,13 @@ public class UmsAdminServiceImpl implements UmsAdminService {
         return umsAdminMapper.selectOne(umsAdmin);
     }
 
+    @Override
+    public int modifyPassword(String username, String password) {
+        UmsAdmin umsAdmin = get(username);
+        umsAdmin.setPassword(passwordEncoder.encode(password));
+        return umsAdminMapper.updateByPrimaryKey(umsAdmin);
+    }
+
     /**
      * 初始化用户对象
      *

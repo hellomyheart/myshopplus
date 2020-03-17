@@ -1,6 +1,7 @@
 package com.funtl.myshop.plus.business.feign;
 
 import com.funtl.myshop.plus.business.dto.IconParam;
+import com.funtl.myshop.plus.business.dto.PasswordParam;
 import com.funtl.myshop.plus.business.dto.ProfileParam;
 import com.funtl.myshop.plus.configuration.FeignRequestConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -18,6 +19,17 @@ public interface ProfileFeign {
 
     @PostMapping(value = "update")
     String update(@RequestBody ProfileParam profileParam);
+
+
+    /**
+     * 修改密码
+     *
+     * @param passwordParam {@link PasswordParam}
+     * @return {@code String} JSON
+     */
+    @PostMapping(value = "modify/password")
+    String modifyPassword(@RequestBody PasswordParam passwordParam);
+
 
     /**
      * 修改头像

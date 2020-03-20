@@ -2,17 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.funtl.myshop.plus</groupId>
     <artifactId>parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <url>http://www.funtl.com</url>
+
     <modules>
         <module>dependencies</module>
         <module>commons</module>
@@ -22,6 +25,7 @@
         <module>gateway</module>
         <module>cloud</module>
     </modules>
+
     <properties>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
@@ -29,12 +33,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+
     <licenses>
         <license>
             <name>Apache 2.0</name>
             <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
+
     <developers>
         <developer>
             <id>liwemin</id>
@@ -42,6 +48,7 @@
             <email>lee.lusifer@gmail.com</email>
         </developer>
     </developers>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -53,6 +60,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <profiles>
         <profile>
             <id>default</id>
@@ -131,6 +139,7 @@
             </build>
         </profile>
     </profiles>
+
     <repositories>
         <repository>
             <id>spring-milestone</id>
@@ -149,6 +158,7 @@
             </snapshots>
         </repository>
     </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>spring-milestone</id>

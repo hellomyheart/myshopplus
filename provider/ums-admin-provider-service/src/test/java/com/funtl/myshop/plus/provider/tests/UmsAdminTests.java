@@ -1,7 +1,5 @@
 package com.funtl.myshop.plus.provider.tests;
 
-import java.util.Date;
-
 import com.funtl.myshop.plus.provider.api.UmsAdminService;
 import com.funtl.myshop.plus.provider.domain.UmsAdmin;
 import com.funtl.myshop.plus.provider.mapper.UmsAdminMapper;
@@ -16,18 +14,21 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-//@Transactional
-//@Rollback
 @SpringBootTest
+@Transactional
+@Rollback
 public class UmsAdminTests {
+
     @Autowired
     private UmsAdminMapper umsAdminMapper;
 
     @Resource
     private UmsAdminService umsAdminService;
+
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
@@ -42,25 +43,31 @@ public class UmsAdminTests {
     @Test
     public void testInsert() {
         UmsAdmin umsAdmin = new UmsAdmin();
-        umsAdmin.setId(120);
-        umsAdmin.setUsername("testuser");
+        umsAdmin.setUsername("Lusifer");
         umsAdmin.setPassword(passwordEncoder.encode("123456"));
-        umsAdmin.setIcon("fg");
-        umsAdmin.setEmail("fgf");
-        umsAdmin.setNickName("fgf");
-        umsAdmin.setNote("fgfg");
+        umsAdmin.setIcon("");
+        umsAdmin.setEmail("");
+        umsAdmin.setNickName("");
+        umsAdmin.setNote("");
         umsAdmin.setCreateTime(new Date());
         umsAdmin.setLoginTime(new Date());
-        umsAdmin.setStatus(10);
+        umsAdmin.setStatus(0);
+
         int result = umsAdminService.insert(umsAdmin);
-//        if (result==1)
-//            System.out.println(1);
-//        else
-//            System.out.println(0);
-
-        Assert.assertEquals(result,1);
-
-
+        Assert.assertEquals(result, 1);
     }
 
+    @Test
+    public void testUpdate() {
+        UmsAdmin umsAdmin = new UmsAdmin();
+        umsAdmin.setId(3L);
+        umsAdmin.setUsername("admin");
+        umsAdmin.setEmail("topsale@vip.qq.com");
+        umsAdmin.setNickName("超级管理员");
+        umsAdmin.setNote("超级管理员");
+        umsAdmin.setStatus(1);
+
+        int result = umsAdminService.update(umsAdmin);
+        Assert.assertEquals(result, 1);
+    }
 }

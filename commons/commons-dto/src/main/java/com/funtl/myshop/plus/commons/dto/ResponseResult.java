@@ -17,15 +17,19 @@ import java.io.Serializable;
  */
 @Data
 public class ResponseResult<T> implements Serializable {
+
     private static final long serialVersionUID = 3468352004150968551L;
+
     /**
      * 状态码
      */
     private Integer code;
+
     /**
      * 消息
      */
     private String message;
+
     /**
      * 返回对象
      */
@@ -62,6 +66,14 @@ public class ResponseResult<T> implements Serializable {
         super();
         this.code = code;
         this.message = message;
+        this.data = data;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
         this.data = data;
     }
 
@@ -112,34 +124,50 @@ public class ResponseResult<T> implements Serializable {
     }
 
     /**
-     * 状态码
+     * 通用状态码
+     * <p>
+     * Description:
+     * </p>
+     *
+     * @author Lusifer
+     * @version v1.0.0
+     * @date 2019-07-30 05:02:49
+     * @see com.funtl.myshop.plus.commons.dto
      */
     public class CodeStatus {
         /**
-         * 成功
+         * 请求成功
          */
         public static final int OK = 20000;
+
         /**
-         * 失败
+         * 请求失败
          */
-        public static final int FAIL = 20004;
+        public static final int FAIL = 20002;
+
+        /**
+         * 熔断请求
+         */
+        public static final int BREAKING = 20004;
 
         /**
          * 非法请求
          */
         public static final int ILLEGAL_REQUEST = 50000;
+
         /**
-         * 非法的 Token
+         * 非法令牌
          */
         public static final int ILLEGAL_TOKEN = 50008;
+
         /**
-         * 其他账号已登录
+         * 其他客户登录
          */
         public static final int OTHER_CLIENTS_LOGGED_IN = 50012;
+
         /**
-         * token超时
+         * 令牌已过期
          */
         public static final int TOKEN_EXPIRED = 50014;
-
     }
 }

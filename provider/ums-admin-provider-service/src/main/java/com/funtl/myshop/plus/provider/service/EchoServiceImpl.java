@@ -7,6 +7,6 @@ import org.apache.dubbo.config.annotation.Service;
 public class EchoServiceImpl implements EchoService {
     @Override
     public String echo(String string) {
-        return "Echo Hello Dubbo " + string;
+        return "Hello Dubbo" + string;
     }
 }

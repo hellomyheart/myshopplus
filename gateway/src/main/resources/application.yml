@@ -3,6 +3,7 @@ base:
     nacos:
       hostname: nacos.demo.com
       port: 80
+
 spring:
   application:
     # 应用名称
@@ -40,7 +41,6 @@ spring:
             - Path=/api/profile/**
           filters:
             - StripPrefix=1
-          # Cloud Upload
         - id: CLOUD-UPLOAD
           uri: lb://cloud-upload
           predicates:
@@ -50,6 +50,7 @@ spring:
 
 server:
   port: 8888
+
 # 配置日志级别，方别调试
 logging:
   level:

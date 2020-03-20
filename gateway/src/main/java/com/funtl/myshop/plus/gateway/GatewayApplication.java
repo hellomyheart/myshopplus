@@ -1,4 +1,5 @@
 package com.funtl.myshop.plus.gateway;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -19,6 +20,7 @@ import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
+
 /**
  * Spring Cloud Gateway
  * <p>
@@ -33,17 +35,22 @@ import reactor.core.publisher.Mono;
 @SpringBootApplication
 @EnableDiscoveryClient
 public class GatewayApplication {
+
     // ----------------------------- 解决跨域 Begin -----------------------------
+
     private static final String ALL = "*";
     private static final String MAX_AGE = "3600L";
+
     @Bean
     public RouteDefinitionLocator discoveryClientRouteDefinitionLocator(DiscoveryClient discoveryClient, DiscoveryLocatorProperties properties) {
         return new DiscoveryClientRouteDefinitionLocator(discoveryClient, properties);
     }
+
     @Bean
     public ServerCodecConfigurer serverCodecConfigurer() {
         return new DefaultServerCodecConfigurer();
     }
+
     @Bean
     public WebFilter corsFilter() {
         return (ServerWebExchange ctx, WebFilterChain chain) -> {
@@ -70,8 +77,11 @@ public class GatewayApplication {
             return chain.filter(ctx);
         };
     }
+
     // ----------------------------- 解决跨域 End -----------------------------
+
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);
     }
+
 }

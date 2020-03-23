@@ -8,15 +8,20 @@
         <outputRelativeToContentRoot value="true" />
         <module name="business-oauth2-feign" />
         <module name="commons-provider" />
-        <module name="business-profile-feign" />
+        <module name="provider-admin-service" />
         <module name="gateway" />
         <module name="business-oauth2-service" />
-        <module name="configuration-feign" />
+        <module name="provider-admin-login-log-service" />
+        <module name="cloud-message-feign" />
         <module name="ums-admin-provider-api" />
+        <module name="provider-admin-login-log-api" />
+        <module name="cloud-message-service" />
+        <module name="business-profile-feign" />
         <module name="commons-dto" />
         <module name="business-reg-service" />
         <module name="commons-utils" />
         <module name="ums-admin-provider-service" />
+        <module name="configuration-feign" />
         <module name="business-reg-feign" />
         <module name="business-reg" />
         <module name="cloud-upload-feign" />
@@ -26,6 +31,7 @@
         <module name="ums-admin-login-log-provider-service" />
         <module name="business-oauth2" />
         <module name="business-profile-service" />
+        <module name="provider-admin-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -40,6 +46,8 @@
       <module name="business-reg-feign" target="1.8" />
       <module name="business-reg-service" target="1.8" />
       <module name="cloud" target="1.8" />
+      <module name="cloud-message-feign" target="1.8" />
+      <module name="cloud-message-service" target="1.8" />
       <module name="cloud-upload" target="1.8" />
       <module name="cloud-upload-feign" target="1.8" />
       <module name="cloud-upload-service" target="1.8" />
@@ -54,6 +62,10 @@
       <module name="gateway" target="1.8" />
       <module name="myshopplus" target="1.8" />
       <module name="provider" target="1.8" />
+      <module name="provider-admin-api" target="1.8" />
+      <module name="provider-admin-login-log-api" target="1.8" />
+      <module name="provider-admin-login-log-service" target="1.8" />
+      <module name="provider-admin-service" target="1.8" />
       <module name="ums-admin-login-log-provider-api" target="1.8" />
       <module name="ums-admin-login-log-provider-service" target="1.8" />
       <module name="ums-admin-provider-api" target="1.8" />
@@ -70,6 +82,8 @@
       <module name="business-reg" options="-parameters" />
       <module name="business-reg-feign" options="-parameters" />
       <module name="business-reg-service" options="-parameters" />
+      <module name="cloud-message-feign" options="-parameters" />
+      <module name="cloud-message-service" options="-parameters" />
       <module name="cloud-upload-feign" options="-parameters" />
       <module name="cloud-upload-service" options="-parameters" />
       <module name="commons-dto" options="-parameters" />
@@ -78,6 +92,10 @@
       <module name="configuration-feign" options="-parameters" />
       <module name="configuration-sentinel" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="provider-admin-api" options="-parameters" />
+      <module name="provider-admin-login-log-api" options="-parameters" />
+      <module name="provider-admin-login-log-service" options="-parameters" />
+      <module name="provider-admin-service" options="-parameters" />
       <module name="ums-admin-login-log-provider-api" options="-parameters" />
       <module name="ums-admin-login-log-provider-service" options="-parameters" />
       <module name="ums-admin-provider-api" options="-parameters" />

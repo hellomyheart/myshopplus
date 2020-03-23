@@ -55,8 +55,8 @@
     <orderEntry type="library" name="Maven: de.javakaffee:kryo-serializers:0.42" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.spring:spring-context-support:1.0.2" level="project" />
     <orderEntry type="module" module-name="commons-provider" />
-    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.10" level="project" />
     <orderEntry type="library" name="Maven: javax.persistence:javax.persistence-api:2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.10" level="project" />
     <orderEntry type="module" module-name="configuration-sentinel" />
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-apache-dubbo-adapter:1.6.3" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-core:1.6.3" level="project" />

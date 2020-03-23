@@ -8,9 +8,10 @@ import org.springframework.cloud.stream.annotation.EnableBinding;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@EnableBinding(MessageSource.class)
+@EnableBinding({MessageSource.class})
 public class CloudMessageApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(CloudMessageApplication.class,args);
+        SpringApplication.run(CloudMessageApplication.class, args);
     }
 }

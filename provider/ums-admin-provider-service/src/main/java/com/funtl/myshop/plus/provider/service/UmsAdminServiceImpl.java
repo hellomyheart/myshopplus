@@ -54,7 +54,6 @@ public class UmsAdminServiceImpl implements UmsAdminService {
     @Override
     @SentinelResource(value = "getByUsername", fallback = "getByUsernameFallback", fallbackClass = UmsAdminServiceFallback.class)
     public UmsAdmin get(String username) {
-        new IllegalAccessException("");
         Example example = new Example(UmsAdmin.class);
         example.createCriteria().andEqualTo("username", username);
         return umsAdminMapper.selectOneByExample(example);

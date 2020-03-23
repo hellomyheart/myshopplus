@@ -44,6 +44,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
 
         <!-- Spring Cloud -->
         <dependency>
@@ -57,17 +61,6 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!-- Projects -->
-        <dependency>
-            <groupId>com.funtl.myshop.plus</groupId>
-            <artifactId>business-profile-feign</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.funtl.myshop.plus</groupId>
-            <artifactId>ums-admin-provider-api</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
         <!-- Datasource -->
         <dependency>
             <groupId>com.zaxxer</groupId>
@@ -87,6 +80,18 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!-- Projects -->
+        <dependency>
+            <groupId>com.funtl.myshop.plus</groupId>
+            <artifactId>business-profile-feign</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.funtl.myshop.plus</groupId>
+            <artifactId>ums-admin-provider-api</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 

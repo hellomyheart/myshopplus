@@ -34,7 +34,7 @@ public class OkHttpClientUtil {
     private OkHttpClient okHttpClient;
 
     private OkHttpClientUtil() {
-        OkHttpClient.Builder clientBuilder = new OkHttpClient.Builder();
+        okhttp3.OkHttpClient.Builder clientBuilder = new okhttp3.OkHttpClient.Builder();
         // 读取超时
         clientBuilder.readTimeout(READ_TIMEOUT, TimeUnit.SECONDS);
         // 连接超时

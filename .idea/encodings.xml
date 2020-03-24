@@ -10,6 +10,8 @@
     <file url="file://$PROJECT_DIR$/business/business-reg-feign" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/business/business-reg-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud/cloud-message-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud/cloud-message-dto" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud/cloud-message-feign" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud/cloud-message-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud/cloud-upload-feign" charset="UTF-8" />

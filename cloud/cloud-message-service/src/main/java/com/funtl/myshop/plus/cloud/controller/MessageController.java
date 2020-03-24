@@ -17,18 +17,5 @@ public class MessageController {
     @Resource
     private MessageProducer messageProducer;
 
-    @PostMapping(value = "admin/login/log")
-    public ResponseResult<Void> sendAdminLoginLog(@RequestBody UmsAdminLoginLogDTO dto) {
-        boolean flag = messageProducer.sendAdminLoginLog(dto);
 
-        // 发送成功
-        if (flag) {
-            return new ResponseResult<Void>(ResponseResult.CodeStatus.OK, "管理员登录日志发送成功");
-        }
-
-        // 发送失败
-        else {
-            return new ResponseResult<Void>(ResponseResult.CodeStatus.FAIL, "管理员登录日志发送失败");
-        }
-    }
 }

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(value = "cloud-message", path = "message", configuration = FeignRequestConfiguration.class, fallback = MessageFeignFallback.class)
 public interface MessageFeign {
 
-    @PostMapping(value = "admin/login/log")
-    String sendAdminLoginLog(@RequestBody UmsAdminLoginLogDTO umsAdminLoginLogDTO);
+
 
 }

@@ -6,27 +6,29 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cloud-upload-feign" />
-        <module name="business-oauth2-feign" />
+        <module name="cloud-message-api" />
+        <module name="cloud-message-service" />
         <module name="commons-provider" />
-        <module name="message-admin-login-log" />
+        <module name="business-profile-feign" />
         <module name="gateway" />
         <module name="commons-dto" />
+        <module name="provider-admin-login-log-service" />
         <module name="cloud-message-feign" />
+        <module name="business-oauth2-feign" />
         <module name="configuration-feign" />
+        <module name="provider-admin-login-log-api" />
         <module name="cloud-upload-service" />
+        <module name="provider-admin-api" />
         <module name="business-reg-service" />
         <module name="commons-utils" />
-        <module name="configuration-sentinel" />
-        <module name="cloud-message-service" />
+        <module name="cloud-message-dto" />
         <module name="business-reg-feign" />
-        <module name="business-oauth2-service" />
-        <module name="provider-admin-login-log-api" />
+        <module name="cloud-upload-feign" />
         <module name="provider-admin-service" />
-        <module name="business-profile-feign" />
-        <module name="provider-admin-login-log-service" />
+        <module name="configuration-sentinel" />
+        <module name="message-admin-login-log" />
         <module name="business-profile-service" />
-        <module name="provider-admin-api" />
+        <module name="business-oauth2-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -38,6 +40,8 @@
       <module name="business-reg-feign" target="1.8" />
       <module name="business-reg-service" target="1.8" />
       <module name="cloud" target="1.8" />
+      <module name="cloud-message-api" target="1.8" />
+      <module name="cloud-message-dto" target="1.8" />
       <module name="cloud-message-feign" target="1.8" />
       <module name="cloud-message-service" target="1.8" />
       <module name="cloud-upload-feign" target="1.8" />
@@ -69,6 +73,8 @@
       <module name="business-profile-service" options="-parameters" />
       <module name="business-reg-feign" options="-parameters" />
       <module name="business-reg-service" options="-parameters" />
+      <module name="cloud-message-api" options="-parameters" />
+      <module name="cloud-message-dto" options="-parameters" />
       <module name="cloud-message-feign" options="-parameters" />
       <module name="cloud-message-service" options="-parameters" />
       <module name="cloud-upload-feign" options="-parameters" />

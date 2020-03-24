@@ -1,14 +1,23 @@
 package com.funtl.myshop.plus.business.controller;
 
+import java.util.Date;
+
 import com.funtl.myshop.plus.business.dto.LoginInfo;
 import com.funtl.myshop.plus.business.dto.LoginParam;
 import com.funtl.myshop.plus.business.feign.ProfileFeign;
+import com.funtl.myshop.plus.cloud.api.MessageService;
+import com.funtl.myshop.plus.cloud.dto.UmsAdminLoginLogDTO;
+import com.funtl.myshop.plus.cloud.feign.MessageFeign;
+import com.funtl.myshop.plus.commons.dto.IpInfo;
 import com.funtl.myshop.plus.commons.dto.ResponseResult;
 import com.funtl.myshop.plus.commons.utils.MapperUtils;
 import com.funtl.myshop.plus.commons.utils.OkHttpClientUtil;
+import com.funtl.myshop.plus.commons.utils.UserAgentUtils;
+import com.funtl.myshop.plus.provider.api.UmsAdminService;
 import com.funtl.myshop.plus.provider.domain.UmsAdmin;
 import com.google.common.collect.Maps;
 import okhttp3.Response;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -65,6 +74,15 @@ public class LoginController {
     @Resource
     private ProfileFeign profileFeign;
 
+    @Resource
+    private MessageFeign messageFeign;
+
+    @Reference(version = "1.0.0")
+    private UmsAdminService umsAdminService;
+
+    @Reference(version = "1.0.0")
+    private MessageService messageService;
+
     /**
      * 登录
      *
@@ -72,7 +90,7 @@ public class LoginController {
      * @return {@link ResponseResult}
      */
     @PostMapping(value = "/user/login")
-    public ResponseResult<Map<String, Object>> login(@RequestBody LoginParam loginParam) {
+    public ResponseResult<Map<String, Object>> login(@RequestBody LoginParam loginParam, HttpServletRequest request) {
         // 封装返回的结果集
         Map<String, Object> result = Maps.newHashMap();
 
@@ -100,6 +118,8 @@ public class LoginController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //发送管理员登录日志
+        sendAdminLoginLog(userDetails.getUsername(),request);
 
         return new ResponseResult<Map<String, Object>>(ResponseResult.CodeStatus.OK, "登录成功", result);
     }
@@ -146,5 +166,25 @@ public class LoginController {
         OAuth2AccessToken oAuth2AccessToken = tokenStore.readAccessToken(token);
         tokenStore.removeAccessToken(oAuth2AccessToken);
         return new ResponseResult<Void>(ResponseResult.CodeStatus.OK, "用户已注销");
+    }
+
+    private Boolean sendAdminLoginLog(String username, HttpServletRequest request) {
+
+        UmsAdmin umsAdmin = umsAdminService.get(username);
+
+        String ip = UserAgentUtils.getIpAddr(request);
+        String city = UserAgentUtils.getIpInfo(ip).getCity();
+        String userAgent = UserAgentUtils.getBrowser(request).getName();
+
+
+        UmsAdminLoginLogDTO dto = new UmsAdminLoginLogDTO();
+
+        dto.setAdminId(umsAdmin.getId());
+        dto.setCreateTime(new Date());
+        dto.setIp(ip);
+        dto.setAddress(city);
+        dto.setUserAgent(userAgent);
+
+        return messageService.sendAdminLoginLog(dto);
     }
 }

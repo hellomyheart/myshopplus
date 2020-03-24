@@ -10,6 +10,8 @@
       <module fileurl="file://$PROJECT_DIR$/business/business-reg-feign/business-reg-feign.iml" filepath="$PROJECT_DIR$/business/business-reg-feign/business-reg-feign.iml" />
       <module fileurl="file://$PROJECT_DIR$/business/business-reg-service/business-reg-service.iml" filepath="$PROJECT_DIR$/business/business-reg-service/business-reg-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloud/cloud.iml" filepath="$PROJECT_DIR$/cloud/cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud/cloud-message-api/cloud-message-api.iml" filepath="$PROJECT_DIR$/cloud/cloud-message-api/cloud-message-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cloud/cloud-message-dto/cloud-message-dto.iml" filepath="$PROJECT_DIR$/cloud/cloud-message-dto/cloud-message-dto.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloud/cloud-message-feign/cloud-message-feign.iml" filepath="$PROJECT_DIR$/cloud/cloud-message-feign/cloud-message-feign.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloud/cloud-message-service/cloud-message-service.iml" filepath="$PROJECT_DIR$/cloud/cloud-message-service/cloud-message-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/cloud/cloud-upload-feign/cloud-upload-feign.iml" filepath="$PROJECT_DIR$/cloud/cloud-upload-feign/cloud-upload-feign.iml" />

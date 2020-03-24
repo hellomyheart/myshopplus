@@ -2,6 +2,8 @@ package com.funtl.myshop.plus.business.controller;
 
 import java.util.Date;
 
+import com.funtl.myshop.plus.business.BusinessException;
+import com.funtl.myshop.plus.business.BusinessStatus;
 import com.funtl.myshop.plus.business.dto.LoginInfo;
 import com.funtl.myshop.plus.business.dto.LoginParam;
 import com.funtl.myshop.plus.business.feign.ProfileFeign;
@@ -97,7 +99,8 @@ public class LoginController {
         // 验证密码是否正确
         UserDetails userDetails = userDetailsService.loadUserByUsername(loginParam.getUsername());
         if (userDetails == null || !passwordEncoder.matches(loginParam.getPassword(), userDetails.getPassword())) {
-            return new ResponseResult<Map<String, Object>>(ResponseResult.CodeStatus.ILLEGAL_REQUEST, "账号或密码错误", null);
+            throw new BusinessException(BusinessStatus.ADMIN_PASSWORD);
+           // return new ResponseResult<Map<String, Object>>(ResponseResult.CodeStatus.ILLEGAL_REQUEST, "账号或密码错误", null);
         }
 
         // 通过 HTTP 客户端请求登录接口

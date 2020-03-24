@@ -160,6 +160,7 @@
         </repository>
     </repositories>
 
+
     <pluginRepositories>
         <pluginRepository>
             <id>spring-milestone</id>
